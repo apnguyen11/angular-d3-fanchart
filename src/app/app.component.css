@@ -9,6 +9,7 @@
   
   hr {
     background-color: steelblue;
+    border: steelblue;
     height: 2px;
   }
   
@@ -31,6 +32,7 @@
   
   .text {
     padding-left: 1%;
+    font-size: 100;
   }
   
   .nli {
