@@ -60,6 +60,7 @@ export class AppComponent {
         if(new Date(this.data[this.index].NLI_time) >= new Date(this.dataPrediction[this.index2].TimeStamp)){
           this.dataPrediction2.push(this.dataPrediction[this.index2])
           this.index2 ++
+          console.log()
         }
         this.index += 1
         console.log(this.index)
@@ -95,7 +96,7 @@ export class AppComponent {
     const nliGraph = d3.select(nliDiv).classed('nli-chart-wrapper', true);
     let margin = { top: 20, right: 30, bottom: 30, left: 40 };
     let height = 600;
-    let width = 800;
+    let width = 650;
 
     let x = d3
       .scaleUtc()
@@ -125,7 +126,7 @@ export class AppComponent {
             .text('Time')
             .attr('font-size', 35)
             .attr('text-anchor', 'end')
-            .attr('x', 455)
+            .attr('x', 375)
             .attr('fill', 'white')
             .attr('stroke', 'white')
             .attr('y', 52),
@@ -218,7 +219,7 @@ export class AppComponent {
 
     const svg = nliGraph
       .append('svg')
-      .attr('viewBox', '-90, -70, 1000, 700')
+      .attr('viewBox', '-40, -90, 700, 750')
       .attr('font-family', 'sans-serif')
       .attr('font-size', 50)
       .attr('stroke', 'grey')
