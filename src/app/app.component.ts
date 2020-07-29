@@ -53,14 +53,12 @@ export class AppComponent {
 
   ngOnInit() {
     console.log( this.dataPrediction)
-    this.sub = Observable.interval(1000)
+    this.sub = Observable.interval(500)
     .subscribe((val) => {
    
         this.data2.push(this.data[this.index])
         if(new Date(this.data[this.index].NLI_time) >= new Date(this.dataPrediction[this.index2].TimeStamp)){
-          this.dataPrediction2.push(this.dataPrediction[this.index2])
-          this.index2 ++
-          console.log()
+          this.dataPrediction2 = this.dataPrediction
         }
         this.index += 1
         console.log(this.index)
