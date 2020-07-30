@@ -53,7 +53,7 @@ export class AppComponent {
 
   ngOnInit() {
     console.log( this.dataPrediction)
-    this.sub = Observable.interval(500)
+    this.sub = Observable.interval(200)
     .subscribe((val) => {
    
         this.data2.push(this.data[this.index])
@@ -98,7 +98,7 @@ export class AppComponent {
 
     let x = d3
       .scaleUtc()
-      .domain(d3.extent(this.data, (d: any) => new Date(d.NLI_time)))
+      .domain(d3.extent(this.data, (d: any) => new Date(d.NLI_time.toString()).setHours(new Date(d.NLI_time.toString()).getHours() + 6)))
       .rangeRound([margin.left, width - margin.right]);
 
     let y = d3
@@ -185,34 +185,34 @@ export class AppComponent {
 
     let area1 = d3
       .area<NLIConfig2>()
-      .x((d: any) => x(new Date(d.TimeStamp)))
+      .x((d: any) => x(new Date(d.TimeStamp.toString()).setHours(new Date(d.TimeStamp.toString()).getHours() + 6)))
       .y0((d: any) => y(d.LowerBound1))
       .y1((d: any) => y(d.UpperBound1));
 
     let area2 = d3
       .area<NLIConfig2>()
-      .x((d: any) => x(new Date(d.TimeStamp)))
+      .x((d: any) => x(new Date(d.TimeStamp.toString()).setHours(new Date(d.TimeStamp.toString()).getHours() + 6)))
       .y0((d: any) => y(d.LowerBound2))
       .y1((d: any) => y(d.UpperBound2));
 
     let line = d3
       .line<NLIConfig>()
-      .x((d: any) => x(new Date(d.NLI_time)))
+      .x((d: any) => x(new Date(d.NLI_time.toString()).setHours(new Date(d.NLI_time.toString()).getHours() + 6)))
       .y((d: any) => y(d.NLI));
 
     let NLIlimit = d3
       .line<NLIConfig>()
-      .x((d: any) => x(new Date(d.NLI_time)))
+      .x((d: any) => x(new Date(d.NLI_time.toString()).setHours(new Date(d.NLI_time.toString()).getHours() + 6)))
       .y((d: any) => y(1));
 
     let MALI = d3
       .line<NLIConfig>()
-      .x((d: any) => x(new Date(d.NLI_time)))
+      .x((d: any) => x(new Date(d.NLI_time.toString()).setHours(new Date(d.NLI_time.toString()).getHours() + 6)))
       .y((d: any) => y(0.22));
 
     let predictionLine = d3
       .line<NLIConfig2>()
-      .x((d: any) => x(new Date(d.TimeStamp)))
+      .x((d: any) => x(new Date(d.TimeStamp.toString()).setHours(new Date(d.TimeStamp.toString()).getHours() + 6)))
       .y((d: any) => y(d.LR_Prediction));
 
     const svg = nliGraph
