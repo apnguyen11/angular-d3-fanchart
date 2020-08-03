@@ -53,7 +53,7 @@ export class AppComponent {
 
   ngOnInit() {
     console.log( this.dataPrediction)
-    this.sub = Observable.interval(200)
+    this.sub = Observable.interval(250)
     .subscribe((val) => {
    
         this.data2.push(this.data[this.index])
